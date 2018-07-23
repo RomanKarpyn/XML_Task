@@ -1,5 +1,7 @@
-package com.epam.lab.task2;
+package com.epam.lab.task25.dao;
 
+import com.epam.lab.task25.Main;
+import com.epam.lab.task25.tables.Employee;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -11,11 +13,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CrudOperations implements DataDao {
+public class EmployeeDAO implements BaseDAO<Employee> {
 
     private static final Logger log = Logger.getLogger(Main.class);
 
-    private static final String jdbcUrl = "jdbc:mysql://localhost:3306/DataBase";
+    private static final String jdbcUrl = "jdbc:mysql://localhost:3306/DataBase1";
     private static final String user = "root";
     private static final String password = "poloua123";
 
@@ -23,8 +25,8 @@ public class CrudOperations implements DataDao {
     private static final String FIND_ALL = "SELECT * FROM employee ORDER BY emp_no";
     private static final String FIND_BY_ID = "SELECT * FROM employee WHERE emp_no=?";
     private static final String FIND_BY_NAME = "SELECT * FROM employee WHERE emp_fname=?";
-    private static final String INSERT = "INSERT INTO employee(emp_no=?, emp_fname, emp_lname, dept_no, emp_live) VALUES(?, ?, ?, ?, ?)";
-    private static final String UPDATE = "UPDATE employee SET emp_fname=?, emp_lname=?, dept_no, emp_live WHERE emp_no=?";
+    private static final String INSERT = "INSERT INTO employee(emp_no, emp_fname, emp_lname, dept_no, emp_live) VALUES(?, ?, ?, ?, ?)";
+    private static final String UPDATE = "UPDATE employee SET emp_fname=?, emp_lname=? WHERE emp_no=?";
 
 
     public int delete(int id) {
@@ -60,7 +62,7 @@ public class CrudOperations implements DataDao {
                 employee.setEmp_no(rs.getInt("emp_no"));
                 employee.setEmp_fname(rs.getString("emp_fname"));
                 employee.setEmp_lname(rs.getString("emp_lname"));
-                employee.setDept_no(rs.getString("dept_no"));
+                employee.setDept_no(rs.getInt("dept_no"));
                 employee.setEmp_live(rs.getString("emp_live"));
 
                 list.add(employee);
@@ -92,7 +94,7 @@ public class CrudOperations implements DataDao {
                 employee.setEmp_no(rs.getInt("emp_no"));
                 employee.setEmp_fname(rs.getString("emp_fname"));
                 employee.setEmp_lname(rs.getString("emp_lname"));
-                employee.setDept_no(rs.getString("dept_no"));
+                employee.setDept_no(rs.getInt("dept_no"));
                 employee.setEmp_live(rs.getString("emp_live"));
 
                 return employee;
@@ -124,7 +126,7 @@ public class CrudOperations implements DataDao {
                 employee.setEmp_no(rs.getInt("emp_no"));
                 employee.setEmp_fname(rs.getString("emp_fname"));
                 employee.setEmp_lname(rs.getString("emp_lname"));
-                employee.setDept_no(rs.getString("dept_no"));
+                employee.setDept_no(rs.getInt("dept_no"));
                 employee.setEmp_live(rs.getString("emp_live"));
 
                 return employee;
@@ -147,19 +149,14 @@ public class CrudOperations implements DataDao {
         try {
             conn = getConnection();
             stmt = conn.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, employee.getEmp_fname());
-            stmt.setString(2, employee.getEmp_lname());
-            stmt.setString(3, employee.getDept_no());
-            stmt.setString(4, employee.getEmp_live());
+            stmt.setInt(1, employee.getEmp_no());
+            stmt.setString(2, employee.getEmp_fname());
+            stmt.setString(3, employee.getEmp_lname());
+            stmt.setInt(4, employee.getDept_no());
+            stmt.setString(5, employee.getEmp_live());
 
-            int result = stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
 
-            if (rs.next()) {
-                employee.setEmp_no(rs.getInt(1));
-            }
-
-            return result;
+            return stmt.executeUpdate();
         } catch (SQLException e) {
             // e.printStackTrace();
             throw new RuntimeException(e);
@@ -169,18 +166,16 @@ public class CrudOperations implements DataDao {
         }
     }
 
-    public int update(Employee employee) {
+    public int update(int empNo,String empFname, String empLname) {
         Connection conn = null;
         PreparedStatement stmt = null;
 
         try {
             conn = getConnection();
             stmt = conn.prepareStatement(UPDATE);
-            stmt.setInt(1, employee.getEmp_no());
-            stmt.setString(2, employee.getEmp_fname());
-            stmt.setString(3, employee.getEmp_lname());
-            stmt.setString(4, employee.getDept_no());
-            stmt.setString(5, employee.getEmp_live());
+            stmt.setString(1, empFname);
+            stmt.setString(2, empLname);
+            stmt.setInt(3,empNo);
 
 
             return stmt.executeUpdate();

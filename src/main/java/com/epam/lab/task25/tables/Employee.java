@@ -1,4 +1,4 @@
-package com.epam.lab.task2;
+package com.epam.lab.task25.tables;
 
 import java.util.Objects;
 
@@ -7,14 +7,19 @@ public class Employee {
     private int emp_no;
     private String emp_fname;
     private String emp_lname;
-    private String dept_no;
+    private int dept_no;
     private String emp_live;
 
     public Employee(){
 
     }
-
-    public Employee(int emp_no, String emp_fname, String emp_lname, String dept_no, String emp_live) {
+    public Employee(String emp_fname, String emp_lname, int dept_no, String emp_live) {
+        this.emp_fname = emp_fname;
+        this.emp_lname = emp_lname;
+        this.dept_no = dept_no;
+        this.emp_live = emp_live;
+    }
+    public Employee(int emp_no, String emp_fname, String emp_lname, int dept_no, String emp_live) {
         this.emp_no = emp_no;
         this.emp_fname = emp_fname;
         this.emp_lname = emp_lname;
@@ -46,11 +51,11 @@ public class Employee {
         this.emp_lname = emp_lname;
     }
 
-    public String getDept_no() {
+    public int getDept_no() {
         return dept_no;
     }
 
-    public void setDept_no(String dept_no) {
+    public void setDept_no(int dept_no) {
         this.dept_no = dept_no;
     }
 

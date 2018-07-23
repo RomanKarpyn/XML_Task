@@ -1,20 +1,24 @@
-package com.epam.lab.task2;
+package com.epam.lab.task25.tables;
 
 import java.util.Objects;
 
 public class Department {
 
-    private String dept_no;
+    private int dept_no;
     private String dept_name;
     private String location;
 
-    public Department(String dept_no, String dept_name, String location) {
+    public Department(){
+
+    }
+
+    public Department(int dept_no, String dept_name, String location) {
         this.dept_no = dept_no;
         this.dept_name = dept_name;
         this.location = location;
     }
 
-    public void setDept_no(String dept_no) {
+    public void setDept_no(int dept_no) {
 
         this.dept_no = dept_no;
     }
@@ -27,7 +31,7 @@ public class Department {
         this.location = location;
     }
 
-    public String getDept_no() {
+    public int getDept_no() {
 
         return dept_no;
     }

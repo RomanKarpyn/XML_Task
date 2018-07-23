@@ -1,16 +1,20 @@
-package com.epam.lab.task2;
+package com.epam.lab.task25.tables;
 
 import java.sql.Date;
 import java.util.Objects;
 
-public class Works_on {
+public class WorksOn {
 
     private int emp_no;
     private String project_no;
     private String job;
     private Date enter_date;
 
-    public Works_on(int emp_no, String project_no, String job, Date enter_date) {
+    public WorksOn(){
+
+    }
+
+    public WorksOn(int emp_no, String project_no, String job, Date enter_date) {
         this.emp_no = emp_no;
         this.project_no = project_no;
         this.job = job;
@@ -53,7 +57,7 @@ public class Works_on {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Works_on works_on = (Works_on) o;
+        WorksOn works_on = (WorksOn) o;
         return emp_no == works_on.emp_no &&
                 Objects.equals(project_no, works_on.project_no) &&
                 Objects.equals(job, works_on.job) &&
@@ -68,7 +72,7 @@ public class Works_on {
 
     @Override
     public String toString() {
-        return "Works_on{" +
+        return "WorksOn{" +
                 "emp_no=" + emp_no +
                 ", project_no='" + project_no + '\'' +
                 ", job='" + job + '\'' +

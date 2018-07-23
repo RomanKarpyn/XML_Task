@@ -1,4 +1,4 @@
-package com.epam.lab.task2;
+package com.epam.lab.task25.tables;
 
 import java.util.Objects;
 
@@ -7,6 +7,16 @@ public class Project {
     private String project_no;
     private String project_name;
     private int budget;
+
+    public Project(){
+
+    }
+
+    public Project(String project_no, String project_name, int budget) {
+        this.project_no = project_no;
+        this.project_name = project_name;
+        this.budget = budget;
+    }
 
     public String getProject_no() {
         return project_no;

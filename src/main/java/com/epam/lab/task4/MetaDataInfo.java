@@ -1,6 +1,5 @@
 package com.epam.lab.task4;
 
-import com.epam.lab.task2.CrudOperations;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -12,7 +11,7 @@ public class MetaDataInfo {
 
     private static final Logger log = Logger.getLogger(MetaDataInfo.class);
 
-    private static final String jdbcUrl = "jdbc:mysql://localhost:3306/DataBase";
+    private static final String jdbcUrl = "jdbc:mysql://localhost:3306/DataBase1";
     private static final String user = "root";
     private static final String password = "poloua123";
 

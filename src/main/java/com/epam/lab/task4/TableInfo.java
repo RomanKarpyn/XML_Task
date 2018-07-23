@@ -8,7 +8,7 @@ public class TableInfo {
 
     private static final Logger log = Logger.getLogger(TableInfo.class);
 
-    private static final String jdbcUrl = "jdbc:mysql://localhost:3306/DataBase";
+    private static final String jdbcUrl = "jdbc:mysql://localhost:3306/DataBase1";
     private static final String user = "root";
     private static final String password = "poloua123";
 

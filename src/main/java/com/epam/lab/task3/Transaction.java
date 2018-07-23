@@ -1,7 +1,5 @@
 package com.epam.lab.task3;
 
-import com.epam.lab.task2.CrudOperations;
-import com.epam.lab.task4.MetaDataInfo;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -11,7 +9,7 @@ public class Transaction {
 
     private static final Logger log = Logger.getLogger(Transaction.class);
 
-    private static final String jdbcUrl = "jdbc:mysql://localhost:3306/DataBase";
+    private static final String jdbcUrl = "jdbc:mysql://localhost:3306/DataBase1";
     private static final String user = "root";
     private static final String password = "poloua123";
 
