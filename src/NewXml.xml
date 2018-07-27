@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><newRootElementName xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="firearm.xsd">
+    <firearm model="Glock 17">
+        <origin>Ukraine</origin>
+        <tts>
+            <carry>1000</carry>
+            <sightRange>323.6</sightRange>
+            <shackle>false</shackle>
+            <optics>true</optics>
+        </tts>
+        <handy>1</handy>
+        <materials>iron</materials>
+    </firearm>
+    <firearm model="FN Herstal FNP-9">
+        <origin>Portugal</origin>
+        <tts>
+            <carry>500</carry>
+            <sightRange>743.6</sightRange>
+            <shackle>true</shackle>
+            <optics>true</optics>
+        </tts>
+        <handy>2</handy>
+        <materials>iron</materials>
+
+    </firearm>
+    <firearm model="Beretta 92FS">
+        <origin>England</origin>
+        <tts>
+            <carry>1000</carry>
+            <sightRange>323.6</sightRange>
+            <shackle>false</shackle>
+            <optics>false</optics>
+        </tts>
+        <handy>1</handy>
+        <materials>iron</materials>
+    </firearm>
+
+    <firearm model="QSZ-92">
+        <origin>Poland</origin>
+        <tts>
+            <carry>1500</carry>
+            <sightRange>323.6</sightRange>
+            <shackle>true</shackle>
+            <optics>false</optics>
+        </tts>
+        <handy>2</handy>
+        <materials>tree</materials>
+    </firearm>
+</newRootElementName>

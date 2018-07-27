@@ -1,0 +1,32 @@
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+    <xs:element name="gun">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="firearm" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="origin" type="xs:string"/>
+                            <xs:element name="tts">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="carry" type="xs:int"/>
+                                        <xs:element name="sightRange" type="xs:double"/>
+                                        <xs:element name="shackle" type="xs:string"/>
+                                        <xs:element name="optics" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="handy" type="xs:int"/>
+                            <xs:element name="materials" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="model" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
